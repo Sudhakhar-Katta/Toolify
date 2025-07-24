@@ -1,0 +1,53 @@
+.fullscreen-wrapper {
+    height: 100vh;             /* Full height */
+    width: 100vw;              /* Full width */
+    display: flex;
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
+}
+
+.toolkit-wrapper{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.tool-grid{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:2rem;
+    justify-items: center;
+    margin-bottom: 0 auto;
+}
+
+.tool-card {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color:#000;
+}
+
+.tool-card:hover {
+    background-color: #e0e0e0;
+    border-color: #000;
+}
+
+.footer-message{
+    font-style: italic;
+    color: #555;
+}

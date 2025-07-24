@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="container">
+    <h1>Toolify</h1>
+
+    <div class="auth-buttons">
+      <button *ngIf="!auth.isLoggedIn()" (click)="goToLogin()">Login</button>
+      <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Welcome to Toolify</h1>
+  <p>Your all-in-one tool dashboard starts here.</p>
+</div>
+
+<section class="content">
+  <h2>Explore the Tools</h2>
+  <p>Scroll down to discover your toolbox in action.</p>
+
+  <div class="tool-grid">
+    <div class="tool-card" *ngFor="let tool of tools">
+      <a [routerLink]="tool.route">{{ tool.name }}</a>
+    </div>
+  </div>
+</section>

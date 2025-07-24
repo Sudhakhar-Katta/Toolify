@@ -1,0 +1,29 @@
+<div class="login-container">
+  <h2>Toolify Login</h2>
+
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <!-- Email Input -->
+    <input
+      type="text"
+      name="email"
+      [(ngModel)]="loginData.email"
+      placeholder="Email"
+      required
+    />
+
+    <!-- Password Input -->
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="loginData.password"
+      placeholder="Password"
+      required
+    />
+
+    <!-- Actions: Reset link + Submit button -->
+    <div class="actions">
+      <a (click)="onResetPassword()" class="reset-link">Reset Password?</a>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+</div>

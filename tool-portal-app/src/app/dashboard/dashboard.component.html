@@ -1,19 +1,19 @@
-
 <div class="fullscreen-wrapper">
-    <div class="toolkit-wrapper">
-        <h1 class="title">Toolify Kit</h1>
-        <div class="tool-grid">
-    <a 
-      class="tool-card" 
-      *ngFor="let tool of tools"
-      [routerLink]="tool.route">
-      {{ tool.name }}
-    </a>
-     <p class="footer-message">more features to come</p>
+  <div class="toolkit-wrapper">
+    <h1 class="title">Toolify Kit</h1>
+    
+    <div class="tool-grid">
+      <a 
+        *ngFor="let tool of tools" 
+        class="tool-card" 
+        [routerLink]="tool.route"
+        [attr.aria-label]="'Navigate to ' + tool.name"
+      >
+        {{ tool.name }}
+      </a>
+    </div>
+    
+    
+    <p class="footer-message">more features to come</p>
   </div>
 </div>
- 
-
-  
-
- 

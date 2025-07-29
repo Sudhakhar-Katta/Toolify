@@ -1,23 +1,48 @@
 import { Component } from '@angular/core';
-import {Router,RouterModule} from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
+
+interface Tool {
+  name: string;
+  route: string;
+  description?: string;
+}
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  tools = [
+ tools: Tool[] = [
+  { name: 'Project', route: '/tools/project' },
+  { name: 'Production Support', route: '/tools/production-support' },
+  { name: 'Production Downtime', route: '/tools/production-downtime' },
+  { name: 'Employee Details', route: '/employee-list' }, 
+  { name: 'Monthly Project Goals', route: '/tools/monthly-project-goals' },
+  { name: 'Time Tracking', route: '/tools/time-tracking' }
+];
 
-      { name: 'Tool 1', route: '/tools/tool1' },
-      { name: 'Tool 2', route: '/tools/tool2' },  
-      { name: 'Tool 3', route: '/tools/tool3' },
-      { name: 'Tool 4', route: '/tools/tool4' },
-      { name: 'Tool 5', route: '/tools/tool5' },
-      { name: 'Tool 6', route: '/tools/tool6' }
 
-  ];
+  constructor(private router: Router) {}
+
+  goToEmployeeList(): void {
+    this.router.navigate(['/employee-list']);
+  }
+
+  // Optional: Handle tool card clicks with error handling
+  navigateToTool(route: string): void {
+    try {
+      this.router.navigate([route]);
+    } catch (error) {
+      console.error('Navigation error:', error);
+      // You could show a toast notification here
+    }
+  }
 }

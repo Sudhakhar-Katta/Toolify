@@ -1,0 +1,21 @@
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+mat-dialog-actions {
+  margin-top: 16px;
+}
+@media (max-width: 500px) {
+  mat-dialog-content {
+    padding: 8px;
+  }
+
+  mat-form-field {
+    margin-bottom: 12px;
+  }
+}

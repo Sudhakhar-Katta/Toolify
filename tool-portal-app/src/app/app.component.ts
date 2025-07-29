@@ -9,7 +9,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  protected readonly title = signal('tool-portal-app');
+  protected readonly title = signal('Toolify');
 
  
 }

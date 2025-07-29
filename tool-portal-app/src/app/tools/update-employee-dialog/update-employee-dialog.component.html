@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Update Employee</h2>
+
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="First Name" name="firstName" [(ngModel)]="employee.firstName" required />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Last Name" name="lastName" [(ngModel)]="employee.lastName" required />
+    </mat-form-field>
+
+    <!-- Add more fields as needed -->
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-flat-button color="primary" type="submit">Update</button>
+    </mat-dialog-actions>
+  </form>
+</mat-dialog-content>

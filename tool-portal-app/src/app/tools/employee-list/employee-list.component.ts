@@ -4,7 +4,6 @@ import { Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { UpdateEmployeeDialogComponent } from "../update-employee-dialog/update-employee-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import  {HttpClient} from "@angular/common/http";
 
@@ -106,6 +105,7 @@ openAddUserModal() {
 
 closeEditUserModal() {
   this.showeEditUserModal = false;
+  this.getEmployees();
 }
 
 submitAddUser() {

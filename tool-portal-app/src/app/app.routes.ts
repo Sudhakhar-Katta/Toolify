@@ -39,8 +39,6 @@ export const routes: Routes = [
     path: 'employee-list',
     loadComponent: () => import('./tools/employee-list/employee-list.component').then(m => m.EmployeeListComponent),
   },
-  {
-    path: 'update-employee/:id',
-    loadComponent: () => import('./tools/update-employee-dialog/update-employee-dialog.component').then(m => m.UpdateEmployeeDialogComponent),
-  },
+  
+
 ];

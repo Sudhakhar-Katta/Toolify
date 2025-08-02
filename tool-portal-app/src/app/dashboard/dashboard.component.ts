@@ -26,7 +26,8 @@ export class DashboardComponent {
   { name: 'Production Downtime', route: '/tools/production-downtime' },
   { name: 'Employee Details', route: '/employee-list' }, 
   { name: 'Monthly Project Goals', route: '/tools/monthly-project-goals' },
-  { name: 'Time Tracking', route: '/tools/time-tracking' }
+  { name: 'Time Tracking', route: '/tools/time-tracking' },
+  {name: 'Reports', route: '/tools/reports' }
 ];
 
 

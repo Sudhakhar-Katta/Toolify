@@ -3,12 +3,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Montserrat', sans-serif !important;
+
 }
 
 body, html {
-  height: 100%;
+  height: 100vh;
   scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif !important;
+
 }
 
 .hero {
@@ -17,10 +20,25 @@ body, html {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #000000;
+  background: #fff;
   color: #fff4f4;
   text-align: center;
   padding: 2rem;
+}
+.btn-login{
+  border-radius: 10px;
+  width:130px;
+  color: #fff;
+  background-color: #add797;
+  height: 40px;
+  font-size: 18px;
+}
+.bottom-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 250px; /* or adjust as needed */
+  z-index: 1;
 }
 
 .hero h1 {
@@ -34,8 +52,7 @@ body, html {
 }
 
 .content {
-  min-height: 100vh;
-  background: #000000;
+  background: #fff;
   color: #fff9f9;
   padding: 4rem 2rem;
   display: flex;
@@ -46,12 +63,16 @@ body, html {
 
 .content h2 {
   font-size: 3rem; 
+  color: #add797;
+    font-family: 'Montserrat', sans-serif !important;
+
 }
 
 .content p {
   font-size: 1.1rem;
   max-width: 600px;
   line-height: 1.6;
+  color: #000000;
 }
 .tool-grid {
   display: grid;

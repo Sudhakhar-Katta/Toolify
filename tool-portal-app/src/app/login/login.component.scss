@@ -1,70 +1,197 @@
-:host {
+/* === GENERAL RESETS & FONTS === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+body, html {
+  height: 100vh;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
+
+/* === PURPLE HEADER BAR === */
+.bg-light {
+  background-color: #1b0750 !important;
+}
+nav.navbar {
+  height: 100px; /* or any value you want */
+  background-color: #1b0750 !important; /* ensure it's the purple you want */
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #000000;
 }
 
+.login-header {
+  width: 100%;
+  height: 100px;
+  background-color: #2e1b4f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* === NAVBAR CONTAINER === */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === LOGIN PAGE CENTERED CONTAINER === */
 .login-container {
-  width: 100%;
-  max-width: 500px;
-  padding: 3rem;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: bold;
-}
-
-input {
-  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
   padding: 1rem;
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  border-radius: 12px;
-  border: 1px solid #ccc;
 }
 
+/* === LOGIN CARD === */
+form {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 3rem 3rem; /* Increase padding */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Was probably 400px before */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* More space between items */
+  align-items: stretch;
+}
+
+/* === LOGIN TITLE === */
+.login-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+}
+
+/* === FORM INPUTS === */
+input[type="text"],
+input[type="password"] {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #add797;
+}
+
+/* === RESET LINK AND BUTTON ROW === */
 .actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-a {
-  color: #000;
+/* === RESET PASSWORD LINK === */
+.reset-link {
+  color: #2e1b4f;
   text-decoration: underline;
+  font-size: 0.9rem;
   cursor: pointer;
-
-  &:hover {
-    color: #007bff;
-  }
-
-  &:focus {
-    outline: none;
-  }
 }
 
-button {
-  padding: 0.6rem 1.5rem;
-  border: none;
-  border-radius: 12px;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;
+.reset-link:hover {
+  text-decoration: none;
+}
 
-  &:hover {
-    background: #333;
-  }
+/* === GRADIENT LOGIN BUTTON === */
+button[type="submit"],
+.btn-login {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(to bottom, #b5e1b3, #7acdbb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover,
+.btn-login:hover {
+  background: linear-gradient(to bottom, #f0ef9b, #b0e3b2);
+}
+
+/* === TOOLIFY LANDING PAGE CONTENT === */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #fff;
+  color: #fff4f4;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+.content {
+  background: #fff;
+  color: #fff9f9;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content h2 {
+  font-size: 3rem;
+  color: #add797;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.content p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 1000px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* === MASCOT IMAGE BOTTOM RIGHT === */
+.bottom-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 250px;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.9;
 }

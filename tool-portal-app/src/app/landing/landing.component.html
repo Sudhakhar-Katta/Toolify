@@ -25,25 +25,29 @@
   <!-- Right-side content -->
   <div class="collapse navbar-collapse" id="navbarContent">
     <div class="ms-auto">
-      <button *ngIf="!auth.isLoggedIn()" class="btn btn-light" type="button" (click)="goToLogin()">Login</button>
-      <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+      <button *ngIf="!auth.isLoggedIn()" class="btn btn-login" type="button" (click)="goToLogin()">Login</button>
+      <button class="btn btn-login" type="button" *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
     </div>
   </div>
 </nav>
 
 
-<div class="hero">
-  <h1>Welcome to Toolify</h1>
-  <p>Your all-in-one tool dashboard starts here.</p>
+<section class="content">
+  <h2 class="mb-5">Explore the Tools</h2>
+
+  <div class="row">
+    <div class="col-md-4 mb-3"  *ngFor="let tool of tools">
+        <div class="card shadow" style="width: 10rem;height: 100px;" >
+  <div class="card-body d-flex justify-content-center align-items-center">
+     <a [routerLink]="tool.route">{{ tool.name }}</a>
+  </div>
 </div>
 
-<section class="content">
-  <h2>Explore the Tools</h2>
-  <p>Scroll down to discover your toolbox in action.</p>
-
-  <div class="tool-grid">
-    <div class="tool-card" *ngFor="let tool of tools">
-      <a [routerLink]="tool.route">{{ tool.name }}</a>
     </div>
+    
   </div>
+
 </section>
+
+   <img src="https://kraftlake.btisinc.com/Content/images/norbie.svg" alt="Mascot" class="bottom-image" />
+

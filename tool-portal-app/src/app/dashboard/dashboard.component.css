@@ -1,82 +1,88 @@
-.fullscreen-wrapper {
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* align from top */
-  background-color: #ffffff;
-  padding-top: 5vh; /* ⬅️ top padding to space title from top */
-}
+  .fullscreen-wrapper {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* align from top */
+    background-color: #ffffff;
+    padding-top: 5vh; /* ⬅️ top padding to space title from top */
+  }
+  nav.navbar {
+    height: 62.4px; /* or any value you want */
+    background-color: #1b0750 !important; /* ensure it's the purple you want */
+    display: flex;
+    align-items: center;
+  }
 
-.toolkit-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1100px;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  padding: 2rem;
-}
+  .toolkit-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2rem;
+  }
 
-.title {
-  font-size: 4rem;
-  font-weight: 900;
-  margin-bottom: 5rem; /* ⬅️ space below title */
-}
+  .title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 5rem; /* ⬅️ space below title */
+  }
 
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4rem 5rem; /* ⬅️ spread out rows and columns */
-  justify-items: center;
-  margin-bottom: 5rem; /* ⬅️ space below tools */
-}
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem 5rem; /* ⬅️ spread out rows and columns */
+    justify-items: center;
+    margin-bottom: 5rem; /* ⬅️ space below tools */
+  }
 
-.tool-card {
-  width: 180px;
-  height: 180px;
-  background-color: #f5f5f5;
-  border: 2px solid #ddd;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: #000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
+  .tool-card {
+    width: 180px;
+    height: 180px;
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
 
-.tool-card:hover {
-  background-color: #eaeaea;
-  border-color: #999;
-  transform: scale(1.04);
-}
+  .tool-card:hover {
+    background-color: #eaeaea;
+    border-color: #999;
+    transform: scale(1.04);
+  }
 
-.tool-button {
-  background-color: #7b2ff7;
-  color: white;
-  border: none;
-  border-radius: 14px;
-  font-size: 1.5rem;
-  padding: 1rem 3rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(123, 47, 247, 0.4);
-}
+  .tool-button {
+    background-color: #7b2ff7;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(123, 47, 247, 0.4);
+  }
 
-.tool-button:hover {
-  background-color: #5a1bc7;
-  transform: scale(1.05);
-}
+  .tool-button:hover {
+    background-color: #5a1bc7;
+    transform: scale(1.05);
+  }
 
-.footer-message {
-  font-style: italic;
-  color: #666;
-  font-size: 1rem;
-  margin-top: 2rem;
-}
+  .footer-message {
+    font-style: italic;
+    color: #666;
+    font-size: 1rem;
+    margin-top: 2rem;
+  }

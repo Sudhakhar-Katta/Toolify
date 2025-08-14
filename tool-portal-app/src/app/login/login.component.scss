@@ -42,14 +42,15 @@ nav.navbar {
 
 /* === LOGIN PAGE CENTERED CONTAINER === */
 .login-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 2rem;
+  flex-direction: column;
 }
+
 
 /* === LOGIN CARD === */
 form {

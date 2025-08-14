@@ -1,88 +1,131 @@
-  .fullscreen-wrapper {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* align from top */
-    background-color: #ffffff;
-    padding-top: 5vh; /* ⬅️ top padding to space title from top */
-  }
-  nav.navbar {
-    height: 62.4px; /* or any value you want */
-    background-color: #1b0750 !important; /* ensure it's the purple you want */
-    display: flex;
-    align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+body, html {
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
+
+/* Navbar */
+nav.navbar {
+  background-color: #1b0750 !important;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* Login button */
+.btn-green-rect {
+  width: 160px;
+  height: 45px;
+  padding: 0.6rem 1.5rem;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to bottom, #b5e1b3, #7acdbb);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-green-rect:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.tool-card {
+  flex-direction: column; /* Stack icon and text vertically */
+}
+
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+
+/* Section Container */
+.tool-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/* Section Title */
+.tool-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #1b0750;
+  margin-bottom: 3rem;
+}
+
+/* Grid Container */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(3,auto);
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  justify-items: center;
+}
+
+/* Tool Cards */
+.tool-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 3rem;
+  max-width: 250px;
+  width: 100%;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Mascot Image */
+.bottom-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 250px;
+  z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bottom-image {
+    height: 120px;
   }
 
-  .toolkit-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .btn-green-rect {
     width: 100%;
-    max-width: 1100px;
-    text-align: center;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 2rem;
+    margin-top: 1rem;
   }
 
-  .title {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 5rem; /* ⬅️ space below title */
+  .tool-section {
+    padding: 2rem 1rem;
   }
-
-  .tool-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4rem 5rem; /* ⬅️ spread out rows and columns */
-    justify-items: center;
-    margin-bottom: 5rem; /* ⬅️ space below tools */
-  }
-
-  .tool-card {
-    width: 180px;
-    height: 180px;
-    background-color: #f5f5f5;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    color: #000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .tool-card:hover {
-    background-color: #eaeaea;
-    border-color: #999;
-    transform: scale(1.04);
-  }
-
-  .tool-button {
-    background-color: #7b2ff7;
-    color: white;
-    border: none;
-    border-radius: 14px;
-    font-size: 1.5rem;
-    padding: 1rem 3rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(123, 47, 247, 0.4);
-  }
-
-  .tool-button:hover {
-    background-color: #5a1bc7;
-    transform: scale(1.05);
-  }
-
-  .footer-message {
-    font-style: italic;
-    color: #666;
-    font-size: 1rem;
-    margin-top: 2rem;
-  }
+}

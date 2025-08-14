@@ -25,29 +25,29 @@
   <!-- Right-side content -->
   <div class="collapse navbar-collapse" id="navbarContent">
     <div class="ms-auto">
-      <button *ngIf="!auth.isLoggedIn()" class="btn btn-login" type="button" (click)="goToLogin()">Login</button>
+      <button *ngIf="!auth.isLoggedIn()" class="btn-green-rect" type="button" (click)="goToLogin()">Login</button>
       <button class="btn btn-login" type="button" *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
     </div>
   </div>
 </nav>
 
+<section class="tool-section">
+  <h2 class="tool-heading">Explore Tools</h2>
 
-<section class="content">
-  <h2 class="mb-5">Explore the Tools</h2>
-
-  <div class="row">
-    <div class="col-md-4 mb-3"  *ngFor="let tool of tools">
-        <div class="card shadow" style="width: 10rem;height: 100px;" >
-  <div class="card-body d-flex justify-content-center align-items-center">
-     <a [routerLink]="tool.route">{{ tool.name }}</a>
-  </div>
-</div>
-
+  <div class="tool-grid">
+    <div
+      class="tool-card"
+      *ngFor="let tool of tools"
+      (click)="onToolClick(tool)"
+      role="button"
+      tabindex="0"
+    >
+      <img class="tool-icon" [src]="tool.icon" [alt]="tool.name" />
+      <span class="tool-name">{{ tool.name }}</span>
     </div>
-    
   </div>
-
 </section>
 
-   <img src="https://kraftlake.btisinc.com/Content/images/norbie.svg" alt="Mascot" class="bottom-image" />
+<img src="https://kraftlake.btisinc.com/Content/images/norbie.svg" alt="Mascot" class="mascot-fixed">
+
 

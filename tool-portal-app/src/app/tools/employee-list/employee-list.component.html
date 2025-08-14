@@ -1,18 +1,27 @@
-<div class="container">
-  <h2>Employee List</h2>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+  <a class="navbar-brand" href="#">
+    <img src="https://marketplace.btisinc.com/wp-content/uploads/2023/12/cropped-btis-logo-3-300x100.png" width="180" height="60" alt="Logo" />
+  </a>
+</nav>
 
-  <div class="button-bar">
-    <button class="add-user-button" (click)="openAddUserModal()">Add User</button>
+<!-- Main content -->
+<div class="main-content container">
+  <h2 class="title">Employee List</h2>
+
+  <!-- Search + Add User -->
+  <div class="search-add-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by name, email, or role..."
+      [(ngModel)]="searchTerm"
+      (input)="filterEmployees()"
+    />
+    <button class="add-user-btn" (click)="openAddUserModal()">Add User</button>
   </div>
 
-  <input
-    type="text"
-    placeholder="Search by name, email, or role..."
-    [(ngModel)]="searchTerm"
-    (input)="filterEmployees()"
-    class="search-bar"
-  />
-
+  <!-- Table -->
   <div class="table-wrapper">
     <table class="custom-table">
       <thead>
@@ -52,61 +61,65 @@
         </tr>
       </tbody>
     </table>
+
     <div class="download-container">
-  <button class="fancy-download-button" (click)="downloadCSV()">
-    <span class="icon">📥</span>
-    <span>Download CSV</span>
-  </button>
-</div>
-
-
-
-  <!-- Modal Popup -->
-  <div *ngIf="showAddUserModal" class="modal-backdrop">
-    <div class="modal">
-      <h2>Add New Employee</h2>
-      <div class="form-row">
-        <input placeholder="First Name" [(ngModel)]="newUser.firstName" />
-        <input placeholder="Last Name" [(ngModel)]="newUser.lastName" />
-      </div>
-      <div class="form-row">
-        <input placeholder="City" [(ngModel)]="newUser.city" />
-        <input placeholder="State" [(ngModel)]="newUser.state" />
-        <input placeholder="Country" [(ngModel)]="newUser.country" />
-      </div>
-      <div class="form-row">
-        <input placeholder="Work Email" [(ngModel)]="newUser.workEmail" />
-        <input placeholder="Personal Email" [(ngModel)]="newUser.personalEmail" />
-      </div>
-      <div class="form-row">
-        <input placeholder="Phone" [(ngModel)]="newUser.phone" />
-        <input placeholder="Role" [(ngModel)]="newUser.role" />
-        <input placeholder="Vendor" [(ngModel)]="newUser.vendor" />
-        <input placeholder="Type" [(ngModel)]="newUser.type" />
-      </div>
-      <div class="form-row">
-        <input placeholder="Software 1" [(ngModel)]="newUser.software1" />
-        <input placeholder="Software 2" [(ngModel)]="newUser.software2" />
-        <input placeholder="Software 3" [(ngModel)]="newUser.software3" />
-        <input placeholder="Software 4" [(ngModel)]="newUser.software4" />
-        <input placeholder="Software 5" [(ngModel)]="newUser.software5" />
-        <input placeholder="Software 6" [(ngModel)]="newUser.software6" />
-        <input placeholder="Software 7" [(ngModel)]="newUser.software7" />
-        <input placeholder="Software 8" [(ngModel)]="newUser.software8" />
-        <input placeholder="Software 9" [(ngModel)]="newUser.software9" />
-        <input placeholder="Software 10" [(ngModel)]="newUser.software10" />
-      </div>
-      <div class="form-actions">
-        <button (click)="submitAddUser()">Add</button>
-        <button (click)="closeAddUserModal()">Cancel</button>
-      </div>
+      <button class="fancy-download-button" (click)="downloadCSV()">
+        <span class="icon">📥</span>
+        <span>Download CSV</span>
+      </button>
     </div>
   </div>
 
-    <!--Edit Modal Popup  -->
-  <div *ngIf="showeEditUserModal" class="modal-backdrop">
-    <div class="modal">
-      <h2> Edit Employee</h2>
+  <!-- Add Modal -->
+<!-- Add Modal -->
+<div *ngIf="showAddUserModal" class="app-modal-backdrop">
+  <div class="app-modal">
+    <h2 class="app-modal-title">Add New Employee</h2>
+
+    <div class="app-form-grid">
+      <input placeholder="First Name" [(ngModel)]="newUser.firstName" />
+      <input placeholder="Last Name" [(ngModel)]="newUser.lastName" />
+
+      <input placeholder="City" [(ngModel)]="newUser.city" />
+      <input placeholder="State" [(ngModel)]="newUser.state" />
+
+      <input placeholder="Country" [(ngModel)]="newUser.country" class="col-span-2" />
+
+      <input placeholder="Work Email" [(ngModel)]="newUser.workEmail" />
+      <input placeholder="Personal Email" [(ngModel)]="newUser.personalEmail" />
+
+      <input placeholder="Phone" [(ngModel)]="newUser.phone" />
+      <input placeholder="Role" [(ngModel)]="newUser.role" />
+
+      <input placeholder="Vendor" [(ngModel)]="newUser.vendor" />
+      <input placeholder="Type" [(ngModel)]="newUser.type" />
+
+      <!-- Software 1–10 -->
+      <input placeholder="Software 1"  [(ngModel)]="newUser.software1" />
+      <input placeholder="Software 2"  [(ngModel)]="newUser.software2" />
+      <input placeholder="Software 3"  [(ngModel)]="newUser.software3" />
+      <input placeholder="Software 4"  [(ngModel)]="newUser.software4" />
+      <input placeholder="Software 5"  [(ngModel)]="newUser.software5" />
+      <input placeholder="Software 6"  [(ngModel)]="newUser.software6" />
+      <input placeholder="Software 7"  [(ngModel)]="newUser.software7" />
+      <input placeholder="Software 8"  [(ngModel)]="newUser.software8" />
+      <input placeholder="Software 9"  [(ngModel)]="newUser.software9" />
+      <input placeholder="Software 10" [(ngModel)]="newUser.software10" />
+    </div>
+
+    <div class="app-form-actions">
+      <button class="btn-primary" (click)="submitAddUser()">Add</button>
+      <button class="btn-ghost" (click)="closeAddUserModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Edit Modal -->
+  <div *ngIf="showeEditUserModal" class="app-modal-backdrop">
+    <div class="app-modal">
+      <h2>Edit Employee</h2>
+
       <div class="form-row">
         <input placeholder="First Name" [(ngModel)]="selectedUser.firstName" />
         <input placeholder="Last Name" [(ngModel)]="selectedUser.lastName" />
@@ -115,33 +128,26 @@
         <input [(ngModel)]="selectedUser.city" />
         <input [(ngModel)]="selectedUser.state" />
         <input [(ngModel)]="selectedUser.country" />
-      </div>  
+      </div>
       <div class="form-row">
-        <input placeholder="Work Email" [(ngModel)]="selectedUser.workEmail"/>
+        <input placeholder="Work Email" [(ngModel)]="selectedUser.workEmail" />
         <input placeholder="Personal Email" [(ngModel)]="selectedUser.personalEmail" />
       </div>
-       <div class="form-row">
-      <input placeholder="Phone" [(ngModel)]="selectedUser.phone" />
-      <input placeholder="Role" [(ngModel)]="selectedUser.role" />
-      <input placeholder="Vendor" [(ngModel)]="selectedUser.vendor" />
-      <input placeholder="Type" [(ngModel)]="selectedUser.type" />
-    </div>
       <div class="form-row">
-      <input placeholder="Software 1" [(ngModel)]="selectedUser.software1" />
-      <input placeholder="Software 2" [(ngModel)]="selectedUser.software2" />
-      <input placeholder="Software 3" [(ngModel)]="selectedUser.software3" />
-      <input placeholder="Software 4" [(ngModel)]="selectedUser.software4" />
-      <input placeholder="Software 5" [(ngModel)]="selectedUser.software5" />
-      <input placeholder="Software 6" [(ngModel)]="selectedUser.software6" />
-      <input placeholder="Software 7" [(ngModel)]="selectedUser.software7" />
-      <input placeholder="Software 8" [(ngModel)]="selectedUser.software8" />
-      <input placeholder="Software 9" [(ngModel)]="selectedUser.software9" />
-      <input placeholder="Software 10" [(ngModel)]="selectedUser.software10" />
+        <input placeholder="Phone" [(ngModel)]="selectedUser.phone" />
+        <input placeholder="Role" [(ngModel)]="selectedUser.role" />
+        <input placeholder="Vendor" [(ngModel)]="selectedUser.vendor" />
+        <input placeholder="Type" [(ngModel)]="selectedUser.type" />
+      </div>
+      <div class="form-row">
+        <ng-container *ngFor="let i of [].constructor(10); let index = index">
+          <input [placeholder]="'Software ' + (index + 1)" [(ngModel)]="selectedUser['software' + (index + 1)]" />
+        </ng-container>
+      </div>
+      <div class="form-actions">
+        <button (click)="submiteEditUser()">Save</button>
+        <button (click)="closeEditUserModal()">Cancel</button>
+      </div>
     </div>
-     <div class="form-actions">
-      <button (click)="submiteEditUser()">Save</button>
-      <button (click)="closeEditUserModal()">Cancel</button>
-    </div>
-    </div>
-   </div>
+  </div>
 </div>

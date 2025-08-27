@@ -18,7 +18,7 @@
       [(ngModel)]="searchTerm"
       (input)="filterEmployees()"
     />
-    <button class="add-user-btn" (click)="openAddUserModal()">Add User</button>
+    <button class="add-user-btn" (click)="openAddUserModal()">Add Employee</button>
   </div>
 
   <!-- Table -->
@@ -32,7 +32,7 @@
           <th>EMAIL</th>
           <th>PHONE</th>
           <th>ROLE</th>
-          <th colspan="10">SOFTWARE</th>
+          <th>SOFTWARE</th> <!-- single column -->
           <th>ACTIONS</th>
         </tr>
       </thead>
@@ -44,16 +44,36 @@
           <td>{{ emp.workEmail }}</td>
           <td>{{ emp.phone }}</td>
           <td>{{ emp.role }}</td>
-          <td>{{ emp.software1 }}</td>
-          <td>{{ emp.software2 }}</td>
-          <td>{{ emp.software3 }}</td>
-          <td>{{ emp.software4 }}</td>
-          <td>{{ emp.software5 }}</td>
-          <td>{{ emp.software6 }}</td>
-          <td>{{ emp.software7 }}</td>
-          <td>{{ emp.software8 }}</td>
-          <td>{{ emp.software9 }}</td>
-          <td>{{ emp.software10 }}</td>
+
+          <!-- Comma-separated software list -->
+        <td class="truncate"
+        [title]="
+        (emp.software1 || '') +
+        (emp.software2 ? ', ' + emp.software2 : '') +
+        (emp.software3 ? ', ' + emp.software3 : '') +
+        (emp.software4 ? ', ' + emp.software4 : '') +
+        (emp.software5 ? ', ' + emp.software5 : '') +
+        (emp.software6 ? ', ' + emp.software6 : '') +
+        (emp.software7 ? ', ' + emp.software7 : '') +
+        (emp.software8 ? ', ' + emp.software8 : '') +
+        (emp.software9 ? ', ' + emp.software9 : '') +
+        (emp.software10 ? ', ' + emp.software10 : '')
+      ">
+    {{
+        (emp.software1 || '') +
+        (emp.software2 ? ', ' + emp.software2 : '') +
+        (emp.software3 ? ', ' + emp.software3 : '') +
+        (emp.software4 ? ', ' + emp.software4 : '') +
+        (emp.software5 ? ', ' + emp.software5 : '') +
+        (emp.software6 ? ', ' + emp.software6 : '') +
+        (emp.software7 ? ', ' + emp.software7 : '') +
+        (emp.software8 ? ', ' + emp.software8 : '') +
+        (emp.software9 ? ', ' + emp.software9 : '') +
+        (emp.software10 ? ', ' + emp.software10 : '')
+          }}
+      </td>
+
+
           <td>
             <button class="action-btn edit" (click)="updateEmployee(emp)">✏️</button>
             <button class="action-btn delete" (click)="deleteEmployee(emp.id)">🗑️</button>
@@ -71,82 +91,85 @@
   </div>
 
   <!-- Add Modal -->
-<!-- Add Modal -->
-<div *ngIf="showAddUserModal" class="app-modal-backdrop">
-  <div class="app-modal">
-    <h2 class="app-modal-title">Add New Employee</h2>
+  <div *ngIf="showAddUserModal" class="app-modal-backdrop">
+    <div class="app-modal">
+      <h2 class="app-modal-title">Add New Employee</h2>
 
-    <div class="app-form-grid">
-      <input placeholder="First Name" [(ngModel)]="newUser.firstName" />
-      <input placeholder="Last Name" [(ngModel)]="newUser.lastName" />
+      <div class="app-form-grid">
+        <input placeholder="First Name" [(ngModel)]="newUser.firstName" />
+        <input placeholder="Last Name" [(ngModel)]="newUser.lastName" />
 
-      <input placeholder="City" [(ngModel)]="newUser.city" />
-      <input placeholder="State" [(ngModel)]="newUser.state" />
+        <input placeholder="City" [(ngModel)]="newUser.city" />
+        <input placeholder="State" [(ngModel)]="newUser.state" />
 
-      <input placeholder="Country" [(ngModel)]="newUser.country" class="col-span-2" />
+        <input placeholder="Country" [(ngModel)]="newUser.country" class="col-span-2" />
 
-      <input placeholder="Work Email" [(ngModel)]="newUser.workEmail" />
-      <input placeholder="Personal Email" [(ngModel)]="newUser.personalEmail" />
+        <input placeholder="Work Email" [(ngModel)]="newUser.workEmail" />
+        <input placeholder="Personal Email" [(ngModel)]="newUser.personalEmail" />
 
-      <input placeholder="Phone" [(ngModel)]="newUser.phone" />
-      <input placeholder="Role" [(ngModel)]="newUser.role" />
+        <input placeholder="Phone" [(ngModel)]="newUser.phone" />
+        <input placeholder="Role" [(ngModel)]="newUser.role" />
 
-      <input placeholder="Vendor" [(ngModel)]="newUser.vendor" />
-      <input placeholder="Type" [(ngModel)]="newUser.type" />
+        <input placeholder="Vendor" [(ngModel)]="newUser.vendor" />
+        <input placeholder="Type" [(ngModel)]="newUser.type" />
 
-      <!-- Software 1–10 -->
-      <input placeholder="Software 1"  [(ngModel)]="newUser.software1" />
-      <input placeholder="Software 2"  [(ngModel)]="newUser.software2" />
-      <input placeholder="Software 3"  [(ngModel)]="newUser.software3" />
-      <input placeholder="Software 4"  [(ngModel)]="newUser.software4" />
-      <input placeholder="Software 5"  [(ngModel)]="newUser.software5" />
-      <input placeholder="Software 6"  [(ngModel)]="newUser.software6" />
-      <input placeholder="Software 7"  [(ngModel)]="newUser.software7" />
-      <input placeholder="Software 8"  [(ngModel)]="newUser.software8" />
-      <input placeholder="Software 9"  [(ngModel)]="newUser.software9" />
-      <input placeholder="Software 10" [(ngModel)]="newUser.software10" />
-    </div>
+        <!-- Software 1–10 -->
+        <input placeholder="Software 1"  [(ngModel)]="newUser.software1" />
+        <input placeholder="Software 2"  [(ngModel)]="newUser.software2" />
+        <input placeholder="Software 3"  [(ngModel)]="newUser.software3" />
+        <input placeholder="Software 4"  [(ngModel)]="newUser.software4" />
+        <input placeholder="Software 5"  [(ngModel)]="newUser.software5" />
+        <input placeholder="Software 6"  [(ngModel)]="newUser.software6" />
+        <input placeholder="Software 7"  [(ngModel)]="newUser.software7" />
+        <input placeholder="Software 8"  [(ngModel)]="newUser.software8" />
+        <input placeholder="Software 9"  [(ngModel)]="newUser.software9" />
+        <input placeholder="Software 10" [(ngModel)]="newUser.software10" />
+      </div>
 
-    <div class="app-form-actions">
-      <button class="btn-primary" (click)="submitAddUser()">Add</button>
-      <button class="btn-ghost" (click)="closeAddUserModal()">Cancel</button>
+      <div class="app-form-actions">
+        <button class="btn-primary" (click)="submitAddUser()">Add</button>
+        <button class="btn-ghost" (click)="closeAddUserModal()">Cancel</button>
+      </div>
     </div>
   </div>
-</div>
-
 
   <!-- Edit Modal -->
-  <div *ngIf="showeEditUserModal" class="app-modal-backdrop">
+  <div *ngIf="showEditUserModal" class="app-modal-backdrop">
     <div class="app-modal">
-      <h2>Edit Employee</h2>
+      <h2 class="app-modal-title">Edit Employee</h2>
 
-      <div class="form-row">
+      <div class="app-form-grid">
+        <!-- Name -->
         <input placeholder="First Name" [(ngModel)]="selectedUser.firstName" />
-        <input placeholder="Last Name" [(ngModel)]="selectedUser.lastName" />
-      </div>
-      <div class="form-row">
-        <input [(ngModel)]="selectedUser.city" />
-        <input [(ngModel)]="selectedUser.state" />
-        <input [(ngModel)]="selectedUser.country" />
-      </div>
-      <div class="form-row">
-        <input placeholder="Work Email" [(ngModel)]="selectedUser.workEmail" />
+        <input placeholder="Last Name"  [(ngModel)]="selectedUser.lastName" />
+
+        <!-- Location -->
+        <input placeholder="City"    [(ngModel)]="selectedUser.city" />
+        <input placeholder="State"   [(ngModel)]="selectedUser.state" />
+        <input placeholder="Country" class="col-span-2" [(ngModel)]="selectedUser.country" />
+
+        <!-- Emails -->
+        <input placeholder="Work Email"     [(ngModel)]="selectedUser.workEmail" />
         <input placeholder="Personal Email" [(ngModel)]="selectedUser.personalEmail" />
-      </div>
-      <div class="form-row">
+
+        <!-- Contact / Role -->
         <input placeholder="Phone" [(ngModel)]="selectedUser.phone" />
-        <input placeholder="Role" [(ngModel)]="selectedUser.role" />
+        <input placeholder="Role"  [(ngModel)]="selectedUser.role" />
+
+        <!-- Vendor / Type -->
         <input placeholder="Vendor" [(ngModel)]="selectedUser.vendor" />
-        <input placeholder="Type" [(ngModel)]="selectedUser.type" />
-      </div>
-      <div class="form-row">
-        <ng-container *ngFor="let i of [].constructor(10); let index = index">
-          <input [placeholder]="'Software ' + (index + 1)" [(ngModel)]="selectedUser['software' + (index + 1)]" />
+        <input placeholder="Type"   [(ngModel)]="selectedUser.type" />
+
+        <!-- Software 1–10 -->
+        <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+          <input [placeholder]="'Software ' + i"
+                 [(ngModel)]="selectedUser['software' + i]" />
         </ng-container>
       </div>
-      <div class="form-actions">
-        <button (click)="submiteEditUser()">Save</button>
-        <button (click)="closeEditUserModal()">Cancel</button>
+
+      <div class="app-form-actions">
+        <button class="btn-primary" (click)="submiteEditUser()">Save</button>
+        <button class="btn-ghost"   (click)="closeEditUserModal()">Cancel</button>
       </div>
     </div>
   </div>

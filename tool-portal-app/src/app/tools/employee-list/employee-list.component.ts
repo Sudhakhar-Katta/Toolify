@@ -20,7 +20,7 @@ export class EmployeeListComponent implements OnInit {
   searchTerm: string = '';
 
   showAddUserModal = false;
-  showeEditUserModal = false;
+  showEditUserModal = false;
 
   newUser: any = this.getEmptyUser();
   selectedUser: any = {};
@@ -42,6 +42,14 @@ export class EmployeeListComponent implements OnInit {
       this.filteredEmployees = data;
     });
   }
+  getSoftwareList(emp: any): string {
+  return [
+    emp.software1, emp.software2, emp.software3, emp.software4, emp.software5,
+    emp.software6, emp.software7, emp.software8, emp.software9, emp.software10
+  ].filter((s: string) => s && s.trim())  // keep only non-empty values
+   .join(', ');
+}
+
 
   filterEmployees() {
     const term = this.searchTerm.toLowerCase();
@@ -55,7 +63,7 @@ export class EmployeeListComponent implements OnInit {
   openAddUserModal() {
     
     this.showAddUserModal = true;
-    this.showeEditUserModal = false;
+    this.showEditUserModal = false;
   }
 
   closeAddUserModal() {
@@ -64,14 +72,14 @@ export class EmployeeListComponent implements OnInit {
   }
 
   closeEditUserModal() {
-    this.showeEditUserModal = false;
+    this.showEditUserModal = false;
     this.getEmployees();
   }
 
   updateEmployee(emp: any) {
     this.selectedUser = { ...emp };
     this.showAddUserModal = false;
-    this.showeEditUserModal = true;
+    this.showEditUserModal = true;
   }
 
   submitAddUser() {

@@ -1,0 +1,152 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+  <a class="navbar-brand" href="#">
+    <img src="https://marketplace.btisinc.com/wp-content/uploads/2023/12/cropped-btis-logo-3-300x100.png" width="180" height="60" alt="Logo" />
+  </a>
+</nav>
+
+<!-- Main content -->
+<div class="main-content container">
+  <h2 class="title">Power BI Reports</h2>
+
+  <!-- Search + Add Report -->
+  <div class="search-add-wrapper">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search by name, workspace, or stream..."
+      [(ngModel)]="searchTerm"
+      (input)="filterReports()"
+    />
+    <button class="add-user-btn" (click)="openAddReportModal()">Add Report</button>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrapper">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>STREAM</th>
+          <th>WORKSPACE</th>
+          <th>REPORT NAME</th>
+          <th>LINK</th>
+          <th>PAGES</th>
+          <th>SOURCES</th>
+          <th>SCHEMA</th>
+          <th>SCHEDULE</th>
+          <th>FREQUENCY</th>
+          <th>LOB</th>
+          <th>STAKEHOLDER</th>
+          <th>ACTIVE</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of filteredReports; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ r.stream }}</td>
+          <td>{{ r.workspace }}</td>
+          <td>{{ r.reportName }}</td>
+          <td>
+            <a *ngIf="r.reportLink"
+               [href]="r.reportLink"
+               target="_blank"
+               rel="noopener noreferrer">Open</a>
+          </td>
+          <td>{{ r.pages }}</td>
+          <td class="truncate" [title]="r.sources">{{ r.sources }}</td>
+          <td>{{ r.schemaName }}</td>
+          <td>{{ r.schedule }}</td>
+          <td>{{ r.frequency }}</td>
+          <td>{{ r.lob }}</td>
+          <td>{{ r.stakeHolder }}</td>
+          <td>{{ r.reportActive ? 'Yes' : 'No' }}</td>
+          <td>
+            <button class="action-btn edit" (click)="openEditReportModal(r)">✏️</button>
+            <button class="action-btn delete"
+        [disabled]="!r.reportId"
+        (click)="deleteReport(r.reportId!)">🗑️</button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="download-container">
+      <button (click)="downloadReportsCSV()">
+        <span class="icon">📥</span>
+        <span>Download CSV</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Add Report Modal -->
+  <div *ngIf="showAddReportModal" class="app-modal-backdrop">
+    <div class="app-modal">
+      <h2 class="app-modal-title">Add New Report</h2>
+
+      <div class="app-form-grid">
+        <input placeholder="Stream" [(ngModel)]="newReport.stream" />
+        <input placeholder="Workspace" [(ngModel)]="newReport.workspace" />
+        <input placeholder="Report Name" [(ngModel)]="newReport.reportName" />
+
+        <input placeholder="Report Link (URL)" class="col-span-2" [(ngModel)]="newReport.reportLink" />
+        <input placeholder="Pages" [(ngModel)]="newReport.pages" />
+
+        <input placeholder="Sources (comma-separated)" [(ngModel)]="newReport.sources" />
+        <input placeholder="Schema Name" [(ngModel)]="newReport.schemaName" />
+        <input placeholder="Schedule" [(ngModel)]="newReport.schedule" />
+        <input placeholder="Frequency" [(ngModel)]="newReport.frequency" />
+        <input placeholder="LOB" [(ngModel)]="newReport.lob" />
+        <input placeholder="Stakeholder" [(ngModel)]="newReport.stakeHolder" />
+
+        <select [(ngModel)]="newReport.reportActive" class="col-span-2" required>
+          <option [ngValue]="undefined" disabled selected hidden>Active</option>
+          <option [ngValue]="true">Yes</option>
+          <option [ngValue]="false">No</option>
+        </select>
+      </div>
+
+      <div class="app-form-actions">
+        <button type="button" class="btn-primary" (click)="submitAddReport()">Add</button>
+        <button type="button" class="btn-ghost" (click)="closeAddReportModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Report Modal -->
+  <div *ngIf="showEditReportModal" class="app-modal-backdrop">
+    <div class="app-modal">
+      <h2 class="app-modal-title">Edit Report</h2>
+
+      <div class="app-form-grid">
+        <input type="number" placeholder="Report ID" [(ngModel)]="selectedReport.reportId" [readonly]="true" />
+
+        <input placeholder="Stream" [(ngModel)]="selectedReport.stream" />
+        <input placeholder="Workspace" [(ngModel)]="selectedReport.workspace" />
+        <input placeholder="Report Name" [(ngModel)]="selectedReport.reportName" />
+
+        <input placeholder="Report Link (URL)" class="col-span-2" [(ngModel)]="selectedReport.reportLink" />
+        <input type="text" placeholder="Pages" [(ngModel)]="selectedReport.pages" />
+
+        <input placeholder="Sources (comma-separated)" [(ngModel)]="selectedReport.sources" />
+        <input placeholder="Schema Name" [(ngModel)]="selectedReport.schemaName" />
+        <input placeholder="Schedule" [(ngModel)]="selectedReport.schedule" />
+        <input placeholder="Frequency" [(ngModel)]="selectedReport.frequency" />
+        <input placeholder="LOB" [(ngModel)]="selectedReport.lob" />
+        <input placeholder="Stakeholder" [(ngModel)]="selectedReport.stakeHolder" />
+
+        <label class="col-span-2" style="display:flex;align-items:center;gap:.5rem;">
+          <input type="checkbox" [(ngModel)]="selectedReport.reportActive" />
+          Active
+        </label>
+      </div>
+
+      <div class="app-form-actions">
+        <button type="button" class="btn-primary" (click)="submitEditReport()">Save</button>
+        <button type="button" class="btn-ghost" (click)="closeEditReportModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

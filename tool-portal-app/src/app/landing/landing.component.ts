@@ -25,8 +25,8 @@ export class LandingComponent {
   { name: 'Employee Details',icon: 'assets/icons/internship_icons/employee_details.png' },
   { name: 'Monthly Project Goals',icon: 'assets/icons/internship_icons/Monthly_Goals.png' },
   { name: 'Time Tracking',icon: 'assets/icons/internship_icons/time_tracking.png'},
-  { name: 'Reports',icon: 'assets/icons/internship_icons/reports.png' },
-  {name:'Teams',icon:'assets/icons/ngcf9b2fc9-b062-49ee-b17e-5ddcaa9a8c72.jpeg'}
+  { name: 'PowerBI Reports',icon: 'assets/icons/internship_icons/reports.png' },
+  {name:'Teams',icon:'assets/icons/Adobe Express - file.png'},
 ];
   constructor(public auth: AuthService, private route: Router) {}
 

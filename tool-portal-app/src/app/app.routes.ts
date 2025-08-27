@@ -39,6 +39,11 @@ export const routes: Routes = [
     path: 'employee-list',
     loadComponent: () => import('./tools/employee-list/employee-list.component').then(m => m.EmployeeListComponent),
   },
+  {
+    path: 'tools/powerbi-reports-list',
+    loadComponent: () => import('./tools/powerbi-reports-list/component.report').then(m => m.PowerBIReportsListComponent),
+
+  }
   
 
 ];

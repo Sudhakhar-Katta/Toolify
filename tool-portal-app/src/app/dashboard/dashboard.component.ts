@@ -28,8 +28,8 @@
   { name: 'Employee Details',icon: 'assets/icons/internship_icons/employee_details.png',route: '/employee-list' },
   { name: 'Monthly Project Goals',icon: 'assets/icons/internship_icons/Monthly_Goals.png',route: '/tools/tool4' },
   { name: 'Time Tracking',icon: 'assets/icons/internship_icons/time_tracking.png',route: '/tools/tool5' },
-  { name: 'Reports',icon: 'assets/icons/internship_icons/reports.png',route: '/tools/reports' },
-  {name:'Teams',icon:'assets/icons/cf9b2fc9-b062-49ee-b17e-5ddcaa9a8c72.jpeg',route:''}
+  { name: 'PowerBI Reports',icon: 'assets/icons/internship_icons/reports.png',route: '/tools/powerbi-reports-list' },
+  {name:'Teams',icon:'assets/icons/Adobe Express - file.png',route:''},
 ];
 
 
